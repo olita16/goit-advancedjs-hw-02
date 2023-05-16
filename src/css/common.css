@@ -7,8 +7,8 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #9e4545;
-  color: #b97171;
+  background-color: #eef1f1;
+  color: #d3e2e1;
   line-height: 1.5;
 }
 
@@ -21,19 +21,19 @@ input#datetime-picker {
   width: 200px;
   height: 32px;
   border: none;
-  background: #99dddd;
+  background: #f3f5f5;
 
   text-align: center;
-  color: #e9b683;
+  color: #5a5855;
   font-weight: 600;
 }
 
 input#datetime-picker[disabled] {
-  color: #ab803c;
+  color: #f3f5f5;
 }
 
 [disabled] {
-  color: #ab803c;
+  color: #5a5855;
   animation: none;
 }
 
@@ -45,7 +45,7 @@ button {
   border: none;
   font-size: 14px;
   cursor: pointer;
-  color: #353631;
+  color: #9a9b98;
 }
 
 button[data-start],
@@ -54,7 +54,7 @@ button[data-stop] {
 }
 
 button[disabled] {
-  color: #1aa39c;
+  color: #5a5855;
   animation: none;
 }
 
@@ -83,14 +83,14 @@ button[type='submit'] {
   width: 88px;
   height: 44px;
   border-radius: 34px;
-  background-color: #e285c0;
-  color: #ff0505;
+  background-color: #f3f5f5;
+  color: #5a5855;
 }
 
 button[type='submit']:active {
-  filter: drop-shadow(0px 0px 0px rgb(209, 147, 188));
-  -webkit-filter: drop-shadow(0px 0px 0px rgb(185, 135, 169));
-  box-shadow: inset 4.3px 4.3px 7px rgb(197, 116, 170);
+  filter: drop-shadow(0px 0px 0px rgb(209, 225, 238));
+  -webkit-filter: drop-shadow(0px 0px 0px rgb(166, 203, 207));
+  box-shadow: inset 4.3px 4.3px 7px rgb(180, 210, 211);
 }
 
 .timer {
@@ -109,7 +109,7 @@ button[type='submit']:active {
   font-weight: 600;
   text-align: center;
   letter-spacing: 4px;
-  color: #7bf0d7;
+  color: #5a5855;
 }
 
 .label {
@@ -117,24 +117,24 @@ button[type='submit']:active {
   font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
-  color: #7bf0d7;
+  color: #5a5855;
 }
 
 .flatpickr-months {
-  background-color: rgb(223, 185, 135);
+  background-color: rgb(243, 229, 210);
 }
 
 span.flatpickr-day.selected,
 span.flatpickr-day.selected:hover {
-  background-color: #af7a7a;
-  border-color: #b9a8a8;
-  color: #d1a0a0;
+  background-color: #f3f5f5;
+  border-color: #727070;
+  color: #5a5855;
 }
 
 .flatpickr-day.today.selected {
   background: antiquewhite;
-  border-color: #ff0505;
-  color: #ab803c;
+  border-color: #727070;
+  color: #5a5855;
 }
 
 .flatpickr-time input.flatpickr-hour.selected,
@@ -142,7 +142,7 @@ span.flatpickr-day.selected:hover {
 .flatpickr-time input.flatpickr-minute,
 .flatpickr-time input.flatpickr-second {
   font-weight: 400;
-  color: #53b3ab;
+  color: #5a5855;
 }
 
 .form {
@@ -158,7 +158,7 @@ label {
 }
 
 label span {
-  color: #abd9e7;
+  color: #5a5855;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
@@ -175,12 +175,12 @@ input[type='number'] {
   border-radius: 5px;
 
   background-color: transparent;
-  color: #eaecd0;
+  color: #5a5855;
   font-size: 16px;
 }
 
 input[type='number']::placeholder {
-  color: #b0f0e7;
+  color: #5a5855;
 }
 
 ul {
@@ -202,12 +202,12 @@ ul {
   outline: 0;
   border-radius: 320px;
 
-  background-color: #a4e7ce;
+  background-color: #f3f5f5;
 
   font-size: 16px;
   font: inherit;
   font-weight: bold;
 
-  color: #4ab7be;
+  color: #5a5855;
   cursor: pointer;
 }
