@@ -1,4 +1,3 @@
-
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
@@ -27,27 +26,18 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0].getTime() < Date.now()) {
-      Report.failure(
-        'Please, choose a date in the future',
-        'Okay'
-      );
+      Report.failure('Please, choose a date in the future', 'Okay');
     } else {
       selectedDate = selectedDates[0].getTime();
       startBtn.disabled = false;
-      Report.success(
-        'Congratulation! Click on start!',
-        'Okay'
-      );
+      Report.success('Congratulation! Click on start!', 'Okay');
     }
   },
 };
 
 const fp = flatpickr(flatpickrInput, options);
 
-Report.info(
-  'Please, choose a date and click on start',
-  'Okay'
-);
+Report.info('Please, choose a date and click on start', 'Okay');
 
 function onStartCounter() {
   counter.start();
@@ -104,5 +94,5 @@ function updateTimerface({ days, hours, minutes, seconds }) {
 }
 
 function addLeadingZero(value) {
-    return String(value).padStart(2, '0');
-} 
+  return String(value).padStart(2, '0');
+}
