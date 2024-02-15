@@ -64,21 +64,6 @@ button[disabled] {
   animation: waves 2s ease-in-out infinite;
 }
 
-@keyframes waves {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 
 button:active {
   position: relative;
