@@ -1,41 +1,44 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-document.body.style.backgroundColor = '#f7eff4';
-const refs = {
-  form: document.querySelector('.form'),
-  buttonEl: document.querySelector('button'),
-};
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-refs.form.addEventListener('submit', onClickCreatePromises);
-
-function onClickCreatePromises(e) {
-  e.preventDefault();
-  const timeDelay = Number(refs.form.elements['delay'].value);
-  const step = Number(refs.form.elements['step'].value);
-  const amount = Number(refs.form.elements['amount'].value);
-  for (let i = 1; i <= amount; i += 1) {
-    createPromise(i, timeDelay, step)
-      .then(result => {
-        Notify.success(result);
-        console.log(result);
-      })
-      .catch(error => {
-        Notify.failure(error);
-        console.log(error);
-      });
-  }
-}
-
-function createPromise(position, timeDelay, step) {
-  const shouldResolve = Math.random() > 0.3;
-  const delay = timeDelay + (position - 1) * step;
+function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
-        resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        resolve({ position, delay });
       } else {
-        reject(`❌ Rejected promise ${position} in ${delay}ms`);
+        reject({ position, delay });
       }
     }, delay);
   });
 }
+
+document.querySelector('.form').addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  let delay = Number(formData.get('delay'));
+  const step = Number(formData.get('step'));
+  const amount = Number(formData.get('amount'));
+
+  for (let i = 1; i <= amount; i++) {
+    createPromise(i, delay)
+      .then(({ position, delay }) => {
+        iziToast.success({
+          title: 'Success',
+          message: `Fulfilled promise ${position} in ${delay}ms`,
+        });
+        console.log(`Fulfilled promise ${position} in ${delay}ms`);
+      })
+      .catch(({ position, delay }) => {
+        iziToast.error({
+          title: 'Error',
+          message: `Rejected promise ${position} in ${delay}ms`,
+        });
+        console.log(`Rejected promise ${position} in ${delay}ms`);
+      });
+    delay += step;
+  }
+  event.target.reset();
+});
